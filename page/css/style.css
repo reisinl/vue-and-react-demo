@@ -1,0 +1,50 @@
+/*table,table tr th, table tr td { 
+ 	border:1px solid #0094ff; 
+ }
+
+table { 
+ 	width: 200px; 
+ 	min-height: 25px; 
+ 	line-height: 25px; 
+ 	text-align: center; 
+ 	border-collapse: collapse; 
+ 	margin-top:20px
+} */ 
+
+.cal-info {
+	width: 600px;
+	text-align: left
+
+}
+
+#app {
+	margin-top:-200px;
+}
+#result {
+ 	text-align: center;
+	border-radius: 20px;
+	width: 300px;
+	height: auto;
+	margin: auto;
+	position: absolute;
+	top: 100px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+#btn-calc {
+	margin-left: -100px;
+	margin-top:-60px;
+}
+#fileReader {
+ 	text-align: center;
+	border-radius: 20px;
+	width: 300px;
+	height: auto;
+	margin: auto;
+	position: absolute;
+	top: 10px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}

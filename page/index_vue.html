@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 2 - Vue Version</title>
+</head>
+
+<body>
+    <div id="app" class="container-fluid">
+        
+        <div id="fileReader">
+
+            <input type="file" @change="readFile" multiple class="btn btn-warning"/>
+            
+            <input type="hidden" id="hidden-xValue" />
+            <input type="hidden" id="hidden-yValue" />
+        </div>
+    	<br>
+        <div id="result">
+
+    		<button id="btn-calc" class="btn btn-primary" v-on:click="calcResult()" v-bind:disabled="isDisabled" data-toggle="tooltip" data-placement="right" title="Click here to calculate">Click to show the result</button>
+            <div class="alert alert-primary cal-info" role="alert">
+              Choose two files, and click the "click to show the result" button to calculate the correaltion and the Linear Regression
+            </div>
+    		<div v-if="errMsg != ''" class="alert alert-danger cal-info" role="alert">
+              {{errMsg}}
+            </div>
+            <table v-show="isShow" class="table table-sm table-striped table-bordered ">
+                <thead>
+
+                    <th>Data X</th>
+                    <th>Data Y</th>
+                </thead>
+                <tbody>
+                    <tr v-for="(value, key) in readXResult">
+                        <td>{{value}}</td>
+                        <td>{{readYResult[key]}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table v-show="isShow" class="table table-sm table-striped table-bordered ">
+                <thead>
+                    <th>Rxy</th>
+                    <th>R2</th>
+                    <th>beta0</th>
+                    <th>beta1</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{rxy}}</td>
+                        <td>{{r2}}</td>
+                        <td>{{beta0}}</td>
+                        <td>{{beta1}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<script src="./model/calculator.js"></script>
+<script src="./model/correlationCalculator.js"></script>
+<script src="./model/linearRegressionCalculator.js"></script>
+<script src="./controller/controller-vue.js"></script>
+<script>
+    $(function () { $("[data-toggle='tooltip']").tooltip() })
+</script>z
+
+</html>
